@@ -49,19 +49,125 @@ input, textarea, select { font-family: inherit; }
 [data-theme="light"] {
   --bg-main: #EEF2FF;
   --bg-sidebar: #1B2F6B;
-  --bg-card: #FFFFFF;
-  --bg-input: rgba(27,47,107,0.05);
-  --bg-hover: rgba(27,47,107,0.04);
-  --border: rgba(27,47,107,0.1);
-  --border-input: rgba(27,47,107,0.15);
-  --text-primary: #0A1628;
-  --text-secondary: #2D3E6B;
-  --text-muted: #4A5A8A;
-  --shadow: rgba(27,47,107,0.1);
+  --bg-card: #1B2F6B;
+  --bg-card-hover: #243d87;
+  --bg-input: rgba(255,255,255,0.1);
+  --bg-hover: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.1);
+  --border-input: rgba(255,255,255,0.2);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255,255,255,0.7);
+  --text-muted: rgba(255,255,255,0.5);
+  --shadow: rgba(27,47,107,0.3);
 }
 
 *, *::before, *::after {
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+[data-theme="light"] body {
+  background-color: #EEF2FF;
+}
+
+[data-theme="light"] [class*="card"],
+[data-theme="light"] [class*="Card"] {
+  background-color: #1B2F6B !important;
+  border-color: rgba(255,255,255,0.1) !important;
+  color: white !important;
+}
+
+[data-theme="light"] div[style*="rgba(27,47,107"] {
+  background-color: #1B2F6B !important;
+}
+
+[data-theme="light"] tr:hover {
+  background-color: #243d87 !important;
+}
+
+[data-theme="light"] table {
+  background-color: #1B2F6B;
+  border-color: rgba(255,255,255,0.1);
+}
+
+[data-theme="light"] th {
+  background-color: rgba(0,0,0,0.2) !important;
+  color: rgba(255,255,255,0.7) !important;
+}
+
+[data-theme="light"] td {
+  border-color: rgba(255,255,255,0.08) !important;
+  color: white !important;
+}
+
+[data-theme="light"] input,
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+  background-color: rgba(255,255,255,0.1) !important;
+  border-color: rgba(255,255,255,0.2) !important;
+  color: white !important;
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: rgba(255,255,255,0.4) !important;
+}
+
+[data-theme="light"] nav a {
+  color: rgba(255,255,255,0.7);
+}
+
+[data-theme="light"] main,
+[data-theme="light"] .main-content {
+  background-color: #EEF2FF !important;
+}
+
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3 {
+  color: #0A1628;
+}
+
+[data-theme="light"] [style*="background: #1B2F6B"] h1,
+[data-theme="light"] [style*="background: #1B2F6B"] h2,
+[data-theme="light"] [style*="background: #1B2F6B"] h3,
+[data-theme="light"] [style*="background: #1B2F6B"] p,
+[data-theme="light"] [style*="background: #1B2F6B"] span {
+  color: white !important;
+}
+
+[data-theme="light"] .stat-card {
+  background: #1B2F6B !important;
+  border-color: rgba(255,255,255,0.1) !important;
+}
+
+[data-theme="light"] [role="dialog"],
+[data-theme="light"] .modal {
+  background: #1B2F6B !important;
+}
+
+[data-theme="light"] ::-webkit-scrollbar {
+  width: 6px;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #EEF2FF;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #1B2F6B;
+  border-radius: 3px;
+}
+
+[data-theme="light"] span[style*="rgba(48,209,88"] {
+  background-color: rgba(48,209,88,0.15) !important;
+}
+
+[data-theme="light"] span[style*="rgba(239,68,68"] {
+  background-color: rgba(239,68,68,0.15) !important;
+}
+
+[data-theme="light"] span[style*="rgba(245,200,66"] {
+  background-color: rgba(245,200,66,0.15) !important;
 }
 
 /* Responsive breakpoints */
