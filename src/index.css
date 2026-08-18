@@ -170,6 +170,185 @@ input, textarea, select { font-family: inherit; }
   background-color: rgba(245,200,66,0.15) !important;
 }
 
+/* Force all text white inside navy card backgrounds */
+[data-theme="light"] * {
+  color: inherit;
+}
+
+[data-theme="light"] body {
+  background-color: #EEF2FF;
+  color: #0A1628;
+}
+
+[data-theme="light"] h1 {
+  color: #0A1628 !important;
+}
+
+[data-theme="light"] h2 {
+  color: #0A1628 !important;
+}
+
+[data-theme="light"] h3 {
+  color: #0A1628 !important;
+}
+
+[data-theme="light"] p {
+  color: #2D3E6B !important;
+}
+
+[data-theme="light"] span {
+  color: inherit;
+}
+
+[data-theme="light"] .card,
+[data-theme="light"] [class*="card"] {
+  background-color: #1B2F6B !important;
+  color: white !important;
+}
+
+[data-theme="light"] .card h1,
+[data-theme="light"] .card h2,
+[data-theme="light"] .card h3,
+[data-theme="light"] .card h4,
+[data-theme="light"] .card p,
+[data-theme="light"] .card span,
+[data-theme="light"] .card div,
+[data-theme="light"] .card label,
+[data-theme="light"] .card td,
+[data-theme="light"] .card th {
+  color: white !important;
+}
+
+[data-theme="light"] table {
+  color: #0A1628;
+}
+
+[data-theme="light"] th {
+  color: #0A1628 !important;
+  background-color: rgba(27,47,107,0.08) !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] td {
+  color: #0A1628 !important;
+  border-color: rgba(27,47,107,0.08) !important;
+}
+
+[data-theme="light"] tr:hover {
+  background-color: rgba(27,47,107,0.04) !important;
+}
+
+[data-theme="light"] label {
+  color: #2D3E6B !important;
+}
+
+[data-theme="light"] input,
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+  color: #0A1628 !important;
+  background-color: white !important;
+  border-color: rgba(27,47,107,0.2) !important;
+}
+
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #6B7B99 !important;
+}
+
+[data-theme="light"] .stat-value,
+[data-theme="light"] [class*="stat"] {
+  color: #0A1628 !important;
+}
+
+[data-theme="light"] nav a,
+[data-theme="light"] nav span {
+  color: rgba(255,255,255,0.8) !important;
+}
+
+[data-theme="light"] nav a:hover {
+  color: white !important;
+}
+
+[data-theme="light"] aside *,
+[data-theme="light"] .sidebar * {
+  color: rgba(255,255,255,0.8) !important;
+}
+
+[data-theme="light"] aside a.active,
+[data-theme="light"] .sidebar a.active {
+  color: #F5C842 !important;
+}
+
+[data-theme="light"] .badge,
+[data-theme="light"] [class*="badge"],
+[data-theme="light"] [class*="status"] {
+  color: inherit !important;
+}
+
+[data-theme="light"] button {
+  color: inherit;
+}
+
+[data-theme="light"] [style*="color: #30D158"],
+[data-theme="light"] [style*="color: rgb(48, 209, 88)"] {
+  color: #28a745 !important;
+}
+
+[data-theme="light"] [style*="color: #EF4444"],
+[data-theme="light"] [style*="color: rgb(239, 68, 68)"] {
+  color: #dc3545 !important;
+}
+
+[data-theme="light"] [style*="color: #F5C842"],
+[data-theme="light"] [style*="color: rgb(245, 200, 66)"] {
+  color: #d4a017 !important;
+}
+
+[data-theme="light"] [style*="color: #8B5CF6"],
+[data-theme="light"] [style*="color: rgb(139, 92, 246)"] {
+  color: #7c3aed !important;
+}
+
+[data-theme="light"] [style*="color: #6B7B99"],
+[data-theme="light"] [style*="color: rgb(107, 123, 153)"] {
+  color: #4A5568 !important;
+}
+
+[data-theme="light"] select option {
+  background-color: white;
+  color: #0A1628;
+}
+
+[data-theme="light"] .modal,
+[data-theme="light"] .overlay,
+[data-theme="light"] .popup {
+  background-color: white !important;
+  color: #0A1628 !important;
+}
+
+[data-theme="light"] [style*="color: var(--text-secondary)"],
+[data-theme="light"] [style*="color:var(--text-secondary)"] {
+  color: #4A5568 !important;
+}
+
+[data-theme="light"] div[style*="var(--bg-card)"] h1,
+[data-theme="light"] div[style*="var(--bg-card)"] h2,
+[data-theme="light"] div[style*="var(--bg-card)"] h3,
+[data-theme="light"] div[style*="var(--bg-card)"] h4,
+[data-theme="light"] div[style*="var(--bg-card)"] p,
+[data-theme="light"] div[style*="var(--bg-card)"] span,
+[data-theme="light"] div[style*="var(--bg-card)"] div,
+[data-theme="light"] div[style*="var(--bg-card)"] label,
+[data-theme="light"] div[style*="var(--bg-card)"] td,
+[data-theme="light"] div[style*="var(--bg-card)"] th {
+  color: white !important;
+}
+
+[data-theme="light"] .recharts-text,
+[data-theme="light"] .recharts-cartesian-axis-tick-value {
+  fill: #0A1628 !important;
+}
+
 /* Responsive breakpoints */
 @media (max-width: 768px) {
   .hide-mobile { display: none !important; }
