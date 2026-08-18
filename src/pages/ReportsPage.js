@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
+import { logActivity, LOG_ACTIONS } from '../utils/activityLogger';
 import { formatDate } from '../utils/formatters';
 import {
   RiFlagLine,
@@ -45,10 +46,23 @@ export default function ReportsPage() {
 
     setProcessing(reportId);
     try {
+      const report = reports.find((r) => r.id === reportId);
+
       await supabase
         .from('trainer_reports')
         .update({ status: 'resolved' })
         .eq('id', reportId);
+
+      await logActivity({
+        actorEmail: 'samamponsah775@gmail.com',
+        actorName: 'Admin',
+        actorType: 'admin',
+        action: LOG_ACTIONS.REPORT_RESOLVED,
+        category: 'report',
+        description: `Report resolved for trainer ${report?.trainers?.name || report?.trainer_id}`,
+        metadata: { report_id: reportId, trainer_id: report?.trainer_id },
+        status: 'success',
+      });
 
       await loadReports();
     } finally {
@@ -61,10 +75,23 @@ export default function ReportsPage() {
 
     setProcessing(reportId);
     try {
+      const report = reports.find((r) => r.id === reportId);
+
       await supabase
         .from('trainer_reports')
         .update({ status: 'dismissed' })
         .eq('id', reportId);
+
+      await logActivity({
+        actorEmail: 'samamponsah775@gmail.com',
+        actorName: 'Admin',
+        actorType: 'admin',
+        action: LOG_ACTIONS.REPORT_DISMISSED,
+        category: 'report',
+        description: `Report dismissed for trainer ${report?.trainers?.name || report?.trainer_id}`,
+        metadata: { report_id: reportId, trainer_id: report?.trainer_id },
+        status: 'warning',
+      });
 
       await loadReports();
     } finally {
@@ -77,6 +104,8 @@ export default function ReportsPage() {
 
     setProcessing(reportId);
     try {
+      const report = reports.find((r) => r.id === reportId);
+
       await supabase
         .from('trainers')
         .update({
@@ -89,6 +118,17 @@ export default function ReportsPage() {
         .from('trainer_reports')
         .update({ status: 'resolved' })
         .eq('id', reportId);
+
+      await logActivity({
+        actorEmail: 'samamponsah775@gmail.com',
+        actorName: 'Admin',
+        actorType: 'admin',
+        action: LOG_ACTIONS.TRAINER_SUSPENDED,
+        category: 'trainer',
+        description: `Trainer suspended via report: ${report?.trainers?.name || trainerId}`,
+        metadata: { trainer_id: trainerId, report_id: reportId },
+        status: 'warning',
+      });
 
       await loadReports();
       alert('Trainer has been suspended.');

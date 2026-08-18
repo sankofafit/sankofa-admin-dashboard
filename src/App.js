@@ -13,6 +13,7 @@ import PayoutsPage from './pages/PayoutsPage';
 import EarningsPage from './pages/EarningsPage';
 import SettingsPage from './pages/SettingsPage';
 import ReportsPage from './pages/ReportsPage';
+import ActivityLogsPage from './pages/ActivityLogsPage';
 
 export default function App() {
   const [session, setSession] = useState(null);
@@ -152,6 +153,7 @@ export default function App() {
           <Route path="/payouts" element={<PayoutsPage />} />
           <Route path="/earnings" element={<EarningsPage />} />
           <Route path="/reports" element={<ReportsPage />} />
+          <Route path="/logs" element={<ActivityLogsPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

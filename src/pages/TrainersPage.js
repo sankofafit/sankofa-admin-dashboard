@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
+import { logActivity, LOG_ACTIONS } from '../utils/activityLogger';
 import { timeAgo } from '../utils/formatters';
 import {
   RiCheckboxCircleLine,
@@ -62,12 +63,15 @@ export default function TrainersPage() {
 
       if (error) throw error;
 
-      await supabase.from('admin_activity_log').insert({
-        action: 'approve_trainer',
-        target_id: trainerId,
-        target_name: trainer?.name,
-        notes: 'Approved by admin',
-        created_at: new Date().toISOString(),
+      await logActivity({
+        actorEmail: 'samamponsah775@gmail.com',
+        actorName: 'Admin',
+        actorType: 'admin',
+        action: LOG_ACTIONS.TRAINER_APPROVED,
+        category: 'trainer',
+        description: `Trainer approved: ${trainer?.name || trainerId}`,
+        metadata: { trainer_id: trainerId, trainer_name: trainer?.name },
+        status: 'success',
       });
 
       await loadTrainers();
@@ -98,12 +102,15 @@ export default function TrainersPage() {
         })
         .eq('id', trainerId);
 
-      await supabase.from('admin_activity_log').insert({
-        action: 'reject_trainer',
-        target_id: trainerId,
-        target_name: trainer?.name,
-        notes: reason,
-        created_at: new Date().toISOString(),
+      await logActivity({
+        actorEmail: 'samamponsah775@gmail.com',
+        actorName: 'Admin',
+        actorType: 'admin',
+        action: LOG_ACTIONS.TRAINER_REJECTED,
+        category: 'trainer',
+        description: `Trainer rejected: ${reason}`,
+        metadata: { trainer_id: trainerId, trainer_name: trainer?.name, reason },
+        status: 'warning',
       });
 
       await loadTrainers();

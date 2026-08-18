@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { supabase } from '../lib/supabase';
+import { logActivity, LOG_ACTIONS } from '../utils/activityLogger';
 import { timeAgo } from '../utils/formatters';
 import {
   RiCheckboxCircleLine,
@@ -21,10 +22,20 @@ export default function GymsPage() {
   const [processing, setProcessing] = useState(null);
 
   const logAdminActivity = async (row) => {
-    const { error } = await supabase.from('admin_activity_log').insert(row);
-    if (error) {
-      console.log('Activity log (optional table):', error.message);
-    }
+    const actionMap = {
+      approve_gym: LOG_ACTIONS.GYM_APPROVED,
+      reject_gym: LOG_ACTIONS.GYM_REJECTED,
+    };
+    await logActivity({
+      actorEmail: 'samamponsah775@gmail.com',
+      actorName: 'Admin',
+      actorType: 'admin',
+      action: actionMap[row.action] || LOG_ACTIONS.ADMIN_ACTION,
+      category: 'gym',
+      description: row.notes || row.action,
+      metadata: { gym_id: row.target_id, gym_name: row.target_name },
+      status: row.action === 'reject_gym' ? 'warning' : 'success',
+    });
   };
 
   const loadGyms = useCallback(async () => {
