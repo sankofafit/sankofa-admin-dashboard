@@ -41,38 +41,39 @@ export default function LoginPage() {
           'radial-gradient(ellipse at top, rgba(239,68,68,0.1) 0%, transparent 60%)',
       }}
     >
-      <div style={{ position: 'absolute', top: 20, right: 20 }}>
-        <button
-          type="button"
-          onClick={toggleTheme}
-          style={{
-            backgroundColor:
-              theme === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(27,47,107,0.08)',
-            border: `1px solid ${
-              theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(27,47,107,0.15)'
-            }`,
-            borderRadius: 50,
-            padding: '8px 16px',
-            cursor: 'pointer',
-            color: theme === 'dark' ? '#F5C842' : '#1B2F6B',
-            fontSize: 13,
-            fontWeight: 700,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 6,
-          }}
-        >
-          {theme === 'dark' ? (
-            <>
-              <RiSunLine size={16} /> Light
-            </>
-          ) : (
-            <>
-              <RiMoonLine size={16} /> Dark
-            </>
-          )}
-        </button>
-      </div>
+      <button
+        type="button"
+        onClick={toggleTheme}
+        style={{
+          position: 'absolute',
+          top: 20,
+          right: 20,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 8,
+          backgroundColor: theme === 'dark' ? 'rgba(245,200,66,0.12)' : '#1B2F6B',
+          border: `1.5px solid ${theme === 'dark' ? 'rgba(245,200,66,0.4)' : '#1B2F6B'}`,
+          borderRadius: 50,
+          padding: '8px 16px',
+          cursor: 'pointer',
+          color: theme === 'dark' ? '#F5C842' : 'white',
+          fontSize: 13,
+          fontWeight: 800,
+          transition: 'all 0.2s',
+        }}
+      >
+        {theme === 'dark' ? (
+          <>
+            <RiSunLine size={16} />
+            Light Mode
+          </>
+        ) : (
+          <>
+            <RiMoonLine size={16} />
+            Dark Mode
+          </>
+        )}
+      </button>
       <div style={{ width: '100%', maxWidth: 400 }}>
         <div
           style={{

@@ -102,31 +102,36 @@ export default function Header({ session, onMenuToggle }) {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 6,
-            backgroundColor:
-              theme === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(27,47,107,0.08)',
-            border: `1px solid ${
-              theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(27,47,107,0.15)'
-            }`,
+            gap: 8,
+            backgroundColor: theme === 'dark' ? 'rgba(245,200,66,0.12)' : '#1B2F6B',
+            border: `1.5px solid ${theme === 'dark' ? 'rgba(245,200,66,0.4)' : '#1B2F6B'}`,
             borderRadius: 50,
-            padding: '7px 14px',
+            padding: '8px 16px',
             cursor: 'pointer',
-            color: theme === 'dark' ? '#F5C842' : '#1B2F6B',
+            color: theme === 'dark' ? '#F5C842' : 'white',
             fontSize: 13,
-            fontWeight: 700,
+            fontWeight: 800,
+            letterSpacing: 0.3,
             transition: 'all 0.2s',
+            whiteSpace: 'nowrap',
             flexShrink: 0,
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.opacity = '0.85';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.opacity = '1';
           }}
         >
           {theme === 'dark' ? (
             <>
               <RiSunLine size={16} />
-              {!isMobile && <span style={{ fontSize: 12 }}>Light</span>}
+              Light Mode
             </>
           ) : (
             <>
               <RiMoonLine size={16} />
-              {!isMobile && <span style={{ fontSize: 12 }}>Dark</span>}
+              Dark Mode
             </>
           )}
         </button>
