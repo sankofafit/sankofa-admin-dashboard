@@ -109,10 +109,10 @@ export default function EarningsPage() {
   return (
     <div>
       <div style={{ marginBottom: 24 }}>
-        <h1 style={{ color: 'white', fontSize: 24, fontWeight: 900, margin: 0 }}>
+        <h1 style={{ color: 'var(--text-primary)', fontSize: 24, fontWeight: 900, margin: 0 }}>
           Platform Earnings
         </h1>
-        <p style={{ color: '#6B7B99', marginTop: 4, fontSize: 14 }}>
+        <p style={{ color: 'var(--text-secondary)', marginTop: 4, fontSize: 14 }}>
           Sankofa Fit revenue breakdown
         </p>
       </div>
@@ -127,7 +127,7 @@ export default function EarningsPage() {
       >
         <div
           style={{
-            backgroundColor: 'rgba(27,47,107,0.4)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 16,
             padding: 20,
             border: '1px solid rgba(245,200,66,0.2)',
@@ -137,38 +137,38 @@ export default function EarningsPage() {
           <div style={{ color: '#F5C842', fontSize: 24, fontWeight: 900, marginBottom: 4 }}>
             {loading ? '...' : formatCurrency(earnings.platformTotal)}
           </div>
-          <div style={{ color: 'white', fontSize: 13, fontWeight: 700 }}>Your Total Earnings</div>
-          <div style={{ color: '#6B7B99', fontSize: 11 }}>Platform commission + subscriptions</div>
+          <div style={{ color: 'var(--text-primary)', fontSize: 13, fontWeight: 700 }}>Your Total Earnings</div>
+          <div style={{ color: 'var(--text-secondary)', fontSize: 11 }}>Platform commission + subscriptions</div>
         </div>
         <div
           style={{
-            backgroundColor: 'rgba(27,47,107,0.4)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 16,
             padding: 20,
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid var(--border)',
           }}
         >
           <RiBarChartBoxLine size={24} color="#30D158" style={{ marginBottom: 12 }} />
           <div style={{ color: '#30D158', fontSize: 24, fontWeight: 900, marginBottom: 4 }}>
             {loading ? '...' : formatCurrency(earnings.totalGross)}
           </div>
-          <div style={{ color: 'white', fontSize: 13, fontWeight: 700 }}>Total Gross Revenue</div>
-          <div style={{ color: '#6B7B99', fontSize: 11 }}>All money collected on platform</div>
+          <div style={{ color: 'var(--text-primary)', fontSize: 13, fontWeight: 700 }}>Total Gross Revenue</div>
+          <div style={{ color: 'var(--text-secondary)', fontSize: 11 }}>All money collected on platform</div>
         </div>
         <div
           style={{
-            backgroundColor: 'rgba(27,47,107,0.4)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 16,
             padding: 20,
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid var(--border)',
           }}
         >
           <RiMoneyDollarCircleLine size={24} color="#8B5CF6" style={{ marginBottom: 12 }} />
           <div style={{ color: '#8B5CF6', fontSize: 24, fontWeight: 900, marginBottom: 4 }}>
             {loading ? '...' : formatCurrency(earnings.subscriptionRevenue)}
           </div>
-          <div style={{ color: 'white', fontSize: 13, fontWeight: 700 }}>Subscription Revenue</div>
-          <div style={{ color: '#6B7B99', fontSize: 11 }}>
+          <div style={{ color: 'var(--text-primary)', fontSize: 13, fontWeight: 700 }}>Subscription Revenue</div>
+          <div style={{ color: 'var(--text-secondary)', fontSize: 11 }}>
             {earnings.proUsers} Pro · {earnings.premiumUsers} Premium users
           </div>
         </div>
@@ -176,13 +176,13 @@ export default function EarningsPage() {
 
       <div
         style={{
-          backgroundColor: 'rgba(27,47,107,0.3)',
+          backgroundColor: 'var(--bg-card)',
           borderRadius: 20,
           padding: 24,
-          border: '1px solid rgba(255,255,255,0.06)',
+          border: '1px solid var(--border)',
         }}
       >
-        <h2 style={{ color: 'white', fontSize: 16, fontWeight: 800, marginBottom: 20 }}>
+        <h2 style={{ color: 'var(--text-primary)', fontSize: 16, fontWeight: 800, marginBottom: 20 }}>
           Revenue Breakdown
         </h2>
         {isMobile ? (
@@ -216,8 +216,8 @@ export default function EarningsPage() {
                     <item.Icon size={18} color={item.color} />
                   </div>
                   <div style={{ minWidth: 0 }}>
-                    <div style={{ color: 'white', fontSize: 13, fontWeight: 700 }}>{item.label}</div>
-                    <div style={{ color: '#6B7B99', fontSize: 11 }}>{item.rate} commission</div>
+                    <div style={{ color: 'var(--text-primary)', fontSize: 13, fontWeight: 700 }}>{item.label}</div>
+                    <div style={{ color: 'var(--text-secondary)', fontSize: 11 }}>{item.rate} commission</div>
                   </div>
                 </div>
                 <div
@@ -262,10 +262,10 @@ export default function EarningsPage() {
                 <item.Icon size={20} color={item.color} />
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{ color: 'white', fontSize: 14, fontWeight: 700, marginBottom: 2 }}>
+                <div style={{ color: 'var(--text-primary)', fontSize: 14, fontWeight: 700, marginBottom: 2 }}>
                   {item.label}
                 </div>
-                <div style={{ color: '#6B7B99', fontSize: 12 }}>
+                <div style={{ color: 'var(--text-secondary)', fontSize: 12 }}>
                   Gross: {formatCurrency(item.gross)} · Commission rate: {item.rate}
                 </div>
               </div>

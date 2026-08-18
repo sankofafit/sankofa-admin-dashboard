@@ -212,8 +212,8 @@ export default function GymsPage() {
         }}
       >
         <div>
-          <h1 style={{ color: 'white', fontSize: 24, fontWeight: 900, margin: 0 }}>Gyms</h1>
-          <p style={{ color: '#6B7B99', marginTop: 4, fontSize: 14 }}>
+          <h1 style={{ color: 'var(--text-primary)', fontSize: 24, fontWeight: 900, margin: 0 }}>Gyms</h1>
+          <p style={{ color: 'var(--text-secondary)', marginTop: 4, fontSize: 14 }}>
             {gyms.length} gyms registered
             {counts.pending > 0 && (
               <span style={{ color: '#F5C842', fontWeight: 700, marginLeft: 8 }}>
@@ -264,8 +264,8 @@ export default function GymsPage() {
             display: 'flex',
             alignItems: 'center',
             gap: 8,
-            backgroundColor: 'rgba(255,255,255,0.05)',
-            border: '1px solid rgba(255,255,255,0.1)',
+            backgroundColor: 'var(--bg-input)',
+            border: '1px solid var(--border-input)',
             borderRadius: 10,
             padding: '8px 14px',
             width: isMobile ? '100%' : 300,
@@ -281,7 +281,7 @@ export default function GymsPage() {
             style={{
               background: 'none',
               border: 'none',
-              color: 'white',
+              color: 'var(--text-primary)',
               fontSize: 13,
               outline: 'none',
               flex: 1,
@@ -291,19 +291,19 @@ export default function GymsPage() {
       </div>
 
       {loading ? (
-        <p style={{ color: '#6B7B99' }}>Loading gyms...</p>
+        <p style={{ color: 'var(--text-secondary)' }}>Loading gyms...</p>
       ) : filtered.length === 0 ? (
         <div
           style={{
             textAlign: 'center',
             padding: 60,
-            backgroundColor: 'rgba(27,47,107,0.3)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 20,
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid var(--border)',
           }}
         >
           <RiStoreLine size={48} color="rgba(245,200,66,0.3)" style={{ marginBottom: 16 }} />
-          <p style={{ color: '#6B7B99' }}>
+          <p style={{ color: 'var(--text-secondary)' }}>
             {search ? 'No gyms match your search' : 'No gyms found'}
           </p>
         </div>
@@ -313,7 +313,7 @@ export default function GymsPage() {
             <div
               key={gym.id}
               style={{
-                backgroundColor: 'rgba(27,47,107,0.3)',
+                backgroundColor: 'var(--bg-card)',
                 borderRadius: 16,
                 border: `1px solid ${
                   !gym.is_approved
@@ -369,7 +369,7 @@ export default function GymsPage() {
                       flexWrap: 'wrap',
                     }}
                   >
-                    <span style={{ color: 'white', fontSize: 16, fontWeight: 800 }}>{gym.name}</span>
+                    <span style={{ color: 'var(--text-primary)', fontSize: 16, fontWeight: 800 }}>{gym.name}</span>
                     <span
                       style={{
                         backgroundColor: !gym.is_approved
@@ -398,7 +398,7 @@ export default function GymsPage() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: 4,
-                        color: '#6B7B99',
+                        color: 'var(--text-secondary)',
                         fontSize: 12,
                       }}
                     >
@@ -411,7 +411,7 @@ export default function GymsPage() {
                           display: 'flex',
                           alignItems: 'center',
                           gap: 4,
-                          color: '#6B7B99',
+                          color: 'var(--text-secondary)',
                           fontSize: 12,
                         }}
                       >
@@ -424,14 +424,14 @@ export default function GymsPage() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: 4,
-                        color: '#6B7B99',
+                        color: 'var(--text-secondary)',
                         fontSize: 12,
                       }}
                     >
                       <RiTimeLine size={12} />
                       Registered {timeAgo(gym.created_at)}
                     </div>
-                    <div style={{ color: '#6B7B99', fontSize: 12 }}>
+                    <div style={{ color: 'var(--text-secondary)', fontSize: 12 }}>
                       {gym.gym_classes?.filter((c) => c.is_active).length || 0} classes ·{' '}
                       {gym.gym_membership_plans?.length || 0} plans
                     </div>
@@ -440,7 +440,7 @@ export default function GymsPage() {
                   {gym.description && (
                     <p
                       style={{
-                        color: '#6B7B99',
+                        color: 'var(--text-secondary)',
                         fontSize: 12,
                         marginTop: 8,
                         lineHeight: 1.5,
@@ -472,7 +472,7 @@ export default function GymsPage() {
                           alignItems: 'center',
                           gap: 6,
                           backgroundColor: '#30D158',
-                          color: 'white',
+                          color: 'var(--text-primary)',
                           border: 'none',
                           borderRadius: 8,
                           padding: '8px 16px',
@@ -564,25 +564,25 @@ export default function GymsPage() {
                   <div style={{ color: '#F5C842', fontSize: 16, fontWeight: 900 }}>
                     {gym.totalBookings || 0}
                   </div>
-                  <div style={{ color: '#6B7B99', fontSize: 10 }}>Bookings</div>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: 10 }}>Bookings</div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
                   <div style={{ color: '#30D158', fontSize: 16, fontWeight: 900 }}>
                     GHS {(gym.gymEarnings || 0).toFixed(0)}
                   </div>
-                  <div style={{ color: '#6B7B99', fontSize: 10 }}>Gym Earnings</div>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: 10 }}>Gym Earnings</div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
                   <div style={{ color: '#8B5CF6', fontSize: 16, fontWeight: 900 }}>
                     {gym.gym_classes?.filter((c) => c.is_active).length || 0}
                   </div>
-                  <div style={{ color: '#6B7B99', fontSize: 10 }}>Active Classes</div>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: 10 }}>Active Classes</div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
                   <div style={{ color: '#06B6D4', fontSize: 16, fontWeight: 900 }}>
                     {gym.gym_membership_plans?.length || 0}
                   </div>
-                  <div style={{ color: '#6B7B99', fontSize: 10 }}>Plans</div>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: 10 }}>Plans</div>
                 </div>
               </div>
             </div>

@@ -161,7 +161,7 @@ export default function TrainersPage() {
         <div>
           <h1
             style={{
-              color: 'white',
+              color: 'var(--text-primary)',
               fontSize: 24,
               fontWeight: 900,
               margin: 0,
@@ -169,7 +169,7 @@ export default function TrainersPage() {
           >
             Trainers
           </h1>
-          <p style={{ color: '#6B7B99', marginTop: 4, fontSize: 14 }}>
+          <p style={{ color: 'var(--text-secondary)', marginTop: 4, fontSize: 14 }}>
             {trainers.length} trainers registered
             {counts.pending > 0 && (
               <span
@@ -226,8 +226,8 @@ export default function TrainersPage() {
             display: 'flex',
             alignItems: 'center',
             gap: 8,
-            backgroundColor: 'rgba(255,255,255,0.05)',
-            border: '1px solid rgba(255,255,255,0.1)',
+            backgroundColor: 'var(--bg-input)',
+            border: '1px solid var(--border-input)',
             borderRadius: 10,
             padding: '8px 14px',
             flex: 1,
@@ -243,7 +243,7 @@ export default function TrainersPage() {
             style={{
               background: 'none',
               border: 'none',
-              color: 'white',
+              color: 'var(--text-primary)',
               fontSize: 13,
               outline: 'none',
               flex: 1,
@@ -253,15 +253,15 @@ export default function TrainersPage() {
       </div>
 
       {loading ? (
-        <p style={{ color: '#6B7B99' }}>Loading trainers...</p>
+        <p style={{ color: 'var(--text-secondary)' }}>Loading trainers...</p>
       ) : filtered.length === 0 ? (
         <div
           style={{
             textAlign: 'center',
             padding: 60,
-            backgroundColor: 'rgba(27,47,107,0.3)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 20,
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid var(--border)',
           }}
         >
           <RiUserHeartLine
@@ -269,7 +269,7 @@ export default function TrainersPage() {
             color="rgba(139,92,246,0.3)"
             style={{ marginBottom: 16 }}
           />
-          <p style={{ color: '#6B7B99' }}>
+          <p style={{ color: 'var(--text-secondary)' }}>
             {search
               ? 'No trainers match your search'
               : filter === 'pending'
@@ -289,7 +289,7 @@ export default function TrainersPage() {
             <div
               key={trainer.id}
               style={{
-                backgroundColor: 'rgba(27,47,107,0.3)',
+                backgroundColor: 'var(--bg-card)',
                 borderRadius: 16,
                 border: `1px solid ${
                   !trainer.is_approved
@@ -351,7 +351,7 @@ export default function TrainersPage() {
                   >
                     <span
                       style={{
-                        color: 'white',
+                        color: 'var(--text-primary)',
                         fontSize: 16,
                         fontWeight: 800,
                       }}
@@ -414,7 +414,7 @@ export default function TrainersPage() {
                           display: 'flex',
                           alignItems: 'center',
                           gap: 4,
-                          color: '#6B7B99',
+                          color: 'var(--text-secondary)',
                           fontSize: 12,
                         }}
                       >
@@ -428,7 +428,7 @@ export default function TrainersPage() {
                           display: 'flex',
                           alignItems: 'center',
                           gap: 4,
-                          color: '#6B7B99',
+                          color: 'var(--text-secondary)',
                           fontSize: 12,
                         }}
                       >
@@ -442,7 +442,7 @@ export default function TrainersPage() {
                           display: 'flex',
                           alignItems: 'center',
                           gap: 4,
-                          color: '#6B7B99',
+                          color: 'var(--text-secondary)',
                           fontSize: 12,
                         }}
                       >
@@ -455,7 +455,7 @@ export default function TrainersPage() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: 4,
-                        color: '#6B7B99',
+                        color: 'var(--text-secondary)',
                         fontSize: 12,
                       }}
                     >
@@ -467,7 +467,7 @@ export default function TrainersPage() {
                   {trainer.bio && (
                     <p
                       style={{
-                        color: '#6B7B99',
+                        color: 'var(--text-secondary)',
                         fontSize: 12,
                         lineHeight: 1.5,
                         marginTop: 4,
@@ -526,7 +526,7 @@ export default function TrainersPage() {
                           alignItems: 'center',
                           gap: 6,
                           backgroundColor: '#30D158',
-                          color: 'white',
+                          color: 'var(--text-primary)',
                           border: 'none',
                           borderRadius: 8,
                           padding: '8px 16px',

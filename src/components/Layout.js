@@ -25,7 +25,7 @@ export default function Layout({ children, session }) {
       style={{
         display: 'flex',
         minHeight: '100vh',
-        backgroundColor: '#080C1C',
+        backgroundColor: 'var(--bg-main)',
         position: 'relative',
       }}
     >
@@ -55,6 +55,8 @@ export default function Layout({ children, session }) {
           transition: 'margin-left 0.3s ease',
           minHeight: '100vh',
           width: '100%',
+          backgroundColor: 'var(--bg-main)',
+          overflow: 'auto',
         }}
       >
         <Header session={session} onMenuToggle={() => setSidebarOpen(!sidebarOpen)} />
@@ -64,6 +66,7 @@ export default function Layout({ children, session }) {
             padding: isMobile ? 16 : 24,
             overflowY: 'auto',
             overflowX: 'hidden',
+            backgroundColor: 'var(--bg-main)',
           }}
         >
           {children}

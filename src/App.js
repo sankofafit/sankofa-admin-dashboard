@@ -64,7 +64,7 @@ export default function App() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#080C1C',
+          backgroundColor: 'var(--bg-main)',
           flexDirection: 'column',
           gap: 16,
         }}
@@ -79,7 +79,7 @@ export default function App() {
         >
           SANKOFA FIT
         </div>
-        <div style={{ color: '#6B7B99', fontSize: 13 }}>Admin Dashboard</div>
+        <div style={{ color: 'var(--text-secondary)', fontSize: 13 }}>Admin Dashboard</div>
         <div
           style={{
             width: 36,
@@ -104,17 +104,17 @@ export default function App() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#080C1C',
+          backgroundColor: 'var(--bg-main)',
           flexDirection: 'column',
           gap: 16,
           padding: 24,
         }}
       >
         <RiCloseCircleLine size={48} color="#EF4444" />
-        <h2 style={{ color: 'white', textAlign: 'center' }}>Access Denied</h2>
+        <h2 style={{ color: 'var(--text-primary)', textAlign: 'center' }}>Access Denied</h2>
         <p
           style={{
-            color: '#6B7B99',
+            color: 'var(--text-secondary)',
             textAlign: 'center',
             maxWidth: 300,
           }}
@@ -126,7 +126,7 @@ export default function App() {
           onClick={() => supabase.auth.signOut()}
           style={{
             backgroundColor: '#EF4444',
-            color: 'white',
+            color: 'var(--text-primary)',
             border: 'none',
             borderRadius: 10,
             padding: '10px 20px',

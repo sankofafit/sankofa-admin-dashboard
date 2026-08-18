@@ -249,10 +249,10 @@ export default function DashboardPage() {
         }}
       >
         <div>
-          <h1 style={{ color: 'white', fontSize: isMobile ? 20 : 24, fontWeight: 900, margin: 0 }}>
+          <h1 style={{ color: 'var(--text-primary)', fontSize: isMobile ? 20 : 24, fontWeight: 900, margin: 0 }}>
             Admin Dashboard
           </h1>
-          <p style={{ color: '#6B7B99', marginTop: 4, fontSize: 14 }}>
+          <p style={{ color: 'var(--text-secondary)', marginTop: 4, fontSize: 14 }}>
             Complete overview of Sankofa Fit platform
           </p>
         </div>
@@ -277,7 +277,7 @@ export default function DashboardPage() {
             <RiTimeLine size={20} color="#F5C842" />
             <div>
               <div style={{ color: '#F5C842', fontWeight: 800, fontSize: 14 }}>Pending Approvals</div>
-              <div style={{ color: '#6B7B99', fontSize: 13 }}>
+              <div style={{ color: 'var(--text-secondary)', fontSize: 13 }}>
                 {stats.pendingGyms > 0 &&
                   `${stats.pendingGyms} gym${stats.pendingGyms !== 1 ? 's' : ''}`}
                 {stats.pendingGyms > 0 && stats.pendingTrainers > 0 && ' · '}
@@ -313,7 +313,7 @@ export default function DashboardPage() {
                 state={{ filter: 'pending' }}
                 style={{
                   backgroundColor: '#8B5CF6',
-                  color: 'white',
+                  color: 'var(--text-primary)',
                   borderRadius: 8,
                   padding: '8px 16px',
                   fontSize: 12,
@@ -344,10 +344,10 @@ export default function DashboardPage() {
             key={i}
             to={card.link}
             style={{
-              backgroundColor: 'rgba(27,47,107,0.4)',
+              backgroundColor: 'var(--bg-card)',
               borderRadius: 16,
               padding: 20,
-              border: '1px solid rgba(255,255,255,0.06)',
+              border: '1px solid var(--border)',
               textDecoration: 'none',
               display: 'block',
               transition: 'all 0.2s',
@@ -386,10 +386,10 @@ export default function DashboardPage() {
             >
               {loading ? '...' : card.value}
             </div>
-            <div style={{ color: 'white', fontSize: 13, fontWeight: 700, marginBottom: 2 }}>
+            <div style={{ color: 'var(--text-primary)', fontSize: 13, fontWeight: 700, marginBottom: 2 }}>
               {card.label}
             </div>
-            <div style={{ color: '#6B7B99', fontSize: 11 }}>{card.sub}</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: 11 }}>{card.sub}</div>
           </Link>
         ))}
       </div>
@@ -403,9 +403,9 @@ export default function DashboardPage() {
       >
         <div
           style={{
-            backgroundColor: 'rgba(27,47,107,0.3)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 20,
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid var(--border)',
             overflow: 'hidden',
           }}
         >
@@ -418,7 +418,7 @@ export default function DashboardPage() {
               alignItems: 'center',
             }}
           >
-            <h3 style={{ color: 'white', fontSize: 15, fontWeight: 800, margin: 0 }}>
+            <h3 style={{ color: 'var(--text-primary)', fontSize: 15, fontWeight: 800, margin: 0 }}>
               Pending Gym Approvals
             </h3>
             <Link
@@ -429,7 +429,7 @@ export default function DashboardPage() {
             </Link>
           </div>
           {pendingGyms.length === 0 ? (
-            <div style={{ padding: 32, textAlign: 'center', color: '#6B7B99' }}>
+            <div style={{ padding: 32, textAlign: 'center', color: 'var(--text-secondary)' }}>
               <RiCheckboxCircleLine
                 size={32}
                 color="rgba(48,209,88,0.4)"
@@ -451,8 +451,8 @@ export default function DashboardPage() {
                 }}
               >
                 <div>
-                  <div style={{ color: 'white', fontSize: 14, fontWeight: 700 }}>{gym.name}</div>
-                  <div style={{ color: '#6B7B99', fontSize: 12, marginTop: 2 }}>
+                  <div style={{ color: 'var(--text-primary)', fontSize: 14, fontWeight: 700 }}>{gym.name}</div>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: 12, marginTop: 2 }}>
                     {gym.city} · {timeAgo(gym.created_at)}
                   </div>
                 </div>
@@ -478,9 +478,9 @@ export default function DashboardPage() {
 
         <div
           style={{
-            backgroundColor: 'rgba(27,47,107,0.3)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 20,
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid var(--border)',
             overflow: 'hidden',
           }}
         >
@@ -493,7 +493,7 @@ export default function DashboardPage() {
               alignItems: 'center',
             }}
           >
-            <h3 style={{ color: 'white', fontSize: 15, fontWeight: 800, margin: 0 }}>
+            <h3 style={{ color: 'var(--text-primary)', fontSize: 15, fontWeight: 800, margin: 0 }}>
               Recent Activity
             </h3>
             <Link
@@ -504,7 +504,7 @@ export default function DashboardPage() {
             </Link>
           </div>
           {recentActivity.length === 0 ? (
-            <div style={{ padding: 32, textAlign: 'center', color: '#6B7B99', fontSize: 13 }}>
+            <div style={{ padding: 32, textAlign: 'center', color: 'var(--text-secondary)', fontSize: 13 }}>
               No activity yet
             </div>
           ) : (
@@ -541,7 +541,7 @@ export default function DashboardPage() {
                   <div style={{ minWidth: 0 }}>
                     <div
                       style={{
-                        color: 'white',
+                        color: 'var(--text-primary)',
                         fontSize: 13,
                         fontWeight: 600,
                         whiteSpace: 'nowrap',
@@ -551,7 +551,7 @@ export default function DashboardPage() {
                     >
                       {item.desc}
                     </div>
-                    <div style={{ color: '#6B7B99', fontSize: 11, marginTop: 1 }}>
+                    <div style={{ color: 'var(--text-secondary)', fontSize: 11, marginTop: 1 }}>
                       {item.type} · {timeAgo(item.date)}
                     </div>
                   </div>

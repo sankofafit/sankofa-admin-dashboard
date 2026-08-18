@@ -4,7 +4,7 @@ import { formatDate } from '../utils/formatters';
 import { useIsMobile } from '../hooks/useIsMobile';
 
 const thStyle = {
-  color: '#6B7B99',
+  color: 'var(--text-secondary)',
   fontSize: 10,
   fontWeight: 700,
   letterSpacing: 1,
@@ -15,7 +15,7 @@ const thStyle = {
 };
 
 const tdStyle = {
-  color: 'white',
+  color: 'var(--text-primary)',
   fontSize: 13,
   padding: '13px 16px',
 };
@@ -128,8 +128,8 @@ export default function UsersPage() {
   return (
     <div>
       <div style={{ marginBottom: 24 }}>
-        <h1 style={{ color: 'white', fontSize: 24, fontWeight: 900, margin: 0 }}>Users</h1>
-        <p style={{ color: '#6B7B99', marginTop: 4 }}>
+        <h1 style={{ color: 'var(--text-primary)', fontSize: 24, fontWeight: 900, margin: 0 }}>Users</h1>
+        <p style={{ color: 'var(--text-secondary)', marginTop: 4 }}>
           {loading ? 'Loading…' : `${totalUsers} registered · ${bookingUserCount} paying`}
         </p>
       </div>
@@ -158,7 +158,7 @@ export default function UsersPage() {
           {
             label: 'Free Users',
             value: freeUsers,
-            color: '#6B7B99',
+            color: 'var(--text-secondary)',
             sub: 'on free plan',
           },
           {
@@ -183,10 +183,10 @@ export default function UsersPage() {
           <div
             key={i}
             style={{
-              backgroundColor: 'rgba(27,47,107,0.4)',
+              backgroundColor: 'var(--bg-card)',
               borderRadius: 14,
               padding: 16,
-              border: '1px solid rgba(255,255,255,0.06)',
+              border: '1px solid var(--border)',
               textAlign: 'center',
             }}
           >
@@ -202,7 +202,7 @@ export default function UsersPage() {
             </div>
             <div
               style={{
-                color: 'white',
+                color: 'var(--text-primary)',
                 fontSize: 12,
                 fontWeight: 700,
                 marginBottom: 2,
@@ -210,7 +210,7 @@ export default function UsersPage() {
             >
               {stat.label}
             </div>
-            <div style={{ color: '#6B7B99', fontSize: 11 }}>{stat.sub}</div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: 11 }}>{stat.sub}</div>
           </div>
         ))}
       </div>
@@ -221,11 +221,11 @@ export default function UsersPage() {
         placeholder="Search users by name, email or plan..."
         style={{
           width: '100%',
-          backgroundColor: 'rgba(255,255,255,0.05)',
-          border: '1px solid rgba(255,255,255,0.1)',
+          backgroundColor: 'var(--bg-input)',
+          border: '1px solid var(--border-input)',
           borderRadius: 10,
           padding: '10px 14px',
-          color: 'white',
+          color: 'var(--text-primary)',
           fontSize: 13,
           outline: 'none',
           boxSizing: 'border-box',
@@ -234,9 +234,9 @@ export default function UsersPage() {
       />
 
       {loading ? (
-        <p style={{ color: '#6B7B99', textAlign: 'center', padding: 40 }}>Loading users...</p>
+        <p style={{ color: 'var(--text-secondary)', textAlign: 'center', padding: 40 }}>Loading users...</p>
       ) : rowsForTable.length === 0 ? (
-        <p style={{ color: '#6B7B99', textAlign: 'center', padding: 40 }}>
+        <p style={{ color: 'var(--text-secondary)', textAlign: 'center', padding: 40 }}>
           {search ? 'No users match your search.' : 'No users found.'}
         </p>
       ) : isMobile ? (
@@ -245,10 +245,10 @@ export default function UsersPage() {
             <div
               key={user.id ?? i}
               style={{
-                backgroundColor: 'rgba(27,47,107,0.3)',
+                backgroundColor: 'var(--bg-card)',
                 borderRadius: 14,
                 padding: 16,
-                border: '1px solid rgba(255,255,255,0.06)',
+                border: '1px solid var(--border)',
               }}
             >
               <div
@@ -260,10 +260,10 @@ export default function UsersPage() {
                 }}
               >
                 <div>
-                  <div style={{ color: 'white', fontSize: 15, fontWeight: 700 }}>
+                  <div style={{ color: 'var(--text-primary)', fontSize: 15, fontWeight: 700 }}>
                     {user.full_name || '—'}
                   </div>
-                  <div style={{ color: '#6B7B99', fontSize: 12, marginTop: 2 }}>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: 12, marginTop: 2 }}>
                     {user.email || '—'}
                   </div>
                 </div>
@@ -315,7 +315,7 @@ export default function UsersPage() {
                     }}
                   >
                     <div style={{ color: stat.color, fontSize: 18, fontWeight: 900 }}>{stat.value}</div>
-                    <div style={{ color: '#6B7B99', fontSize: 10 }}>{stat.label}</div>
+                    <div style={{ color: 'var(--text-secondary)', fontSize: 10 }}>{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -329,7 +329,7 @@ export default function UsersPage() {
                   borderTop: '1px solid rgba(255,255,255,0.06)',
                 }}
               >
-                <span style={{ color: '#6B7B99', fontSize: 12 }}>Total Spent</span>
+                <span style={{ color: 'var(--text-secondary)', fontSize: 12 }}>Total Spent</span>
                 <span
                   style={{
                     color: user.totalSpend > 0 ? '#30D158' : '#6B7B99',
@@ -346,9 +346,9 @@ export default function UsersPage() {
       ) : (
         <div
           style={{
-            backgroundColor: 'rgba(27,47,107,0.3)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 20,
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid var(--border)',
             overflow: 'hidden',
           }}
         >
@@ -377,7 +377,7 @@ export default function UsersPage() {
                 {(search ? filtered : users).map((user, i) => (
                   <tr key={user.id ?? i} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
                     <td style={tdStyle}>{user.full_name || '—'}</td>
-                    <td style={{ ...tdStyle, color: '#6B7B99' }}>{user.email || '—'}</td>
+                    <td style={{ ...tdStyle, color: 'var(--text-secondary)' }}>{user.email || '—'}</td>
                     <td style={tdStyle}>
                       <span
                         style={{
@@ -449,7 +449,7 @@ export default function UsersPage() {
                     >
                       {user.totalSpend > 0 ? `GHS ${user.totalSpend.toFixed(2)}` : '—'}
                     </td>
-                    <td style={{ ...tdStyle, color: '#6B7B99' }}>{formatDate(user.created_at)}</td>
+                    <td style={{ ...tdStyle, color: 'var(--text-secondary)' }}>{formatDate(user.created_at)}</td>
                   </tr>
                 ))}
               </tbody>

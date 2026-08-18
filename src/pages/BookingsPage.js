@@ -44,10 +44,10 @@ export default function BookingsPage() {
   return (
     <div>
       <div style={{ marginBottom: 24 }}>
-        <h1 style={{ color: 'white', fontSize: 24, fontWeight: 900, margin: 0 }}>
+        <h1 style={{ color: 'var(--text-primary)', fontSize: 24, fontWeight: 900, margin: 0 }}>
           All Bookings
         </h1>
-        <p style={{ color: '#6B7B99', marginTop: 4 }}>
+        <p style={{ color: 'var(--text-secondary)', marginTop: 4 }}>
           {bookings.length} total bookings · {formatCurrency(totalRevenue)} gross revenue
         </p>
       </div>
@@ -64,7 +64,7 @@ export default function BookingsPage() {
           style={{
             display: 'flex',
             gap: 4,
-            backgroundColor: 'rgba(27,47,107,0.4)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 10,
             padding: 4,
           }}
@@ -106,11 +106,11 @@ export default function BookingsPage() {
           placeholder="Search by class, gym, trainer or reference..."
           style={{
             flex: 1,
-            backgroundColor: 'rgba(255,255,255,0.05)',
-            border: '1px solid rgba(255,255,255,0.1)',
+            backgroundColor: 'var(--bg-input)',
+            border: '1px solid var(--border-input)',
             borderRadius: 10,
             padding: '10px 14px',
-            color: 'white',
+            color: 'var(--text-primary)',
             fontSize: 13,
             outline: 'none',
             minWidth: 200,
@@ -120,9 +120,9 @@ export default function BookingsPage() {
 
       <div
         style={{
-          backgroundColor: 'rgba(27,47,107,0.3)',
+          backgroundColor: 'var(--bg-card)',
           borderRadius: 20,
-          border: '1px solid rgba(255,255,255,0.06)',
+          border: '1px solid var(--border)',
           overflow: 'hidden',
         }}
       >
@@ -135,7 +135,7 @@ export default function BookingsPage() {
                     <th
                       key={h}
                       style={{
-                        color: '#6B7B99',
+                        color: 'var(--text-secondary)',
                         fontSize: 10,
                         fontWeight: 700,
                         letterSpacing: 1,
@@ -153,13 +153,13 @@ export default function BookingsPage() {
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan={7} style={{ textAlign: 'center', padding: 40, color: '#6B7B99' }}>
+                  <td colSpan={7} style={{ textAlign: 'center', padding: 40, color: 'var(--text-secondary)' }}>
                     Loading bookings...
                   </td>
                 </tr>
               ) : filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={7} style={{ textAlign: 'center', padding: 40, color: '#6B7B99' }}>
+                  <td colSpan={7} style={{ textAlign: 'center', padding: 40, color: 'var(--text-secondary)' }}>
                     No bookings match your filters
                   </td>
                 </tr>
@@ -190,11 +190,11 @@ export default function BookingsPage() {
                       </td>
                       <td style={tdStyle}>
                         {booking.class_name || booking.session_type || 'Booking'}
-                        <div style={{ color: '#6B7B99', fontSize: 11 }}>
+                        <div style={{ color: 'var(--text-secondary)', fontSize: 11 }}>
                           {booking.gym_name || booking.trainer_name}
                         </div>
                       </td>
-                      <td style={{ ...tdStyle, color: '#6B7B99' }}>
+                      <td style={{ ...tdStyle, color: 'var(--text-secondary)' }}>
                         {formatDate(booking.booking_date || booking.created_at)}
                       </td>
                       <td style={{ ...tdStyle, fontWeight: 700 }}>
@@ -229,7 +229,7 @@ export default function BookingsPage() {
 }
 
 const tdStyle = {
-  color: 'white',
+  color: 'var(--text-primary)',
   fontSize: 13,
   padding: '13px 16px',
 };

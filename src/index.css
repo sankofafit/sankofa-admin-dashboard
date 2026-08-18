@@ -7,8 +7,8 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, sans-serif;
-  background-color: #080C1C;
-  color: white;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -30,6 +30,38 @@ input, textarea, select { font-family: inherit; }
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+:root {
+  --bg-main: #080C1C;
+  --bg-sidebar: #0D1B45;
+  --bg-card: rgba(27,47,107,0.3);
+  --bg-input: rgba(255,255,255,0.05);
+  --bg-hover: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.06);
+  --border-input: rgba(255,255,255,0.1);
+  --text-primary: #ffffff;
+  --text-secondary: #6B7B99;
+  --text-muted: #4A5568;
+  --shadow: rgba(0,0,0,0.3);
+}
+
+[data-theme="light"] {
+  --bg-main: #EEF2FF;
+  --bg-sidebar: #1B2F6B;
+  --bg-card: #FFFFFF;
+  --bg-input: rgba(27,47,107,0.05);
+  --bg-hover: rgba(27,47,107,0.04);
+  --border: rgba(27,47,107,0.1);
+  --border-input: rgba(27,47,107,0.15);
+  --text-primary: #0A1628;
+  --text-secondary: #2D3E6B;
+  --text-muted: #4A5A8A;
+  --shadow: rgba(27,47,107,0.1);
+}
+
+*, *::before, *::after {
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 /* Responsive breakpoints */

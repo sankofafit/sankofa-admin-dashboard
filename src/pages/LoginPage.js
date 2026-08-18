@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { RiLockLine } from 'react-icons/ri';
+import { RiLockLine, RiSunLine, RiMoonLine } from 'react-icons/ri';
+import useTheme from '../hooks/useTheme';
 
 export default function LoginPage() {
+  const { theme, toggleTheme } = useTheme();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -29,15 +31,48 @@ export default function LoginPage() {
     <div
       style={{
         minHeight: '100vh',
-        backgroundColor: '#080C1C',
+        backgroundColor: 'var(--bg-main)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 24,
+        position: 'relative',
         backgroundImage:
           'radial-gradient(ellipse at top, rgba(239,68,68,0.1) 0%, transparent 60%)',
       }}
     >
+      <div style={{ position: 'absolute', top: 20, right: 20 }}>
+        <button
+          type="button"
+          onClick={toggleTheme}
+          style={{
+            backgroundColor:
+              theme === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(27,47,107,0.08)',
+            border: `1px solid ${
+              theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(27,47,107,0.15)'
+            }`,
+            borderRadius: 50,
+            padding: '8px 16px',
+            cursor: 'pointer',
+            color: theme === 'dark' ? '#F5C842' : '#1B2F6B',
+            fontSize: 13,
+            fontWeight: 700,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+          }}
+        >
+          {theme === 'dark' ? (
+            <>
+              <RiSunLine size={16} /> Light
+            </>
+          ) : (
+            <>
+              <RiMoonLine size={16} /> Dark
+            </>
+          )}
+        </button>
+      </div>
       <div style={{ width: '100%', maxWidth: 400 }}>
         <div
           style={{
@@ -61,15 +96,18 @@ export default function LoginPage() {
 
         <div
           style={{
-            backgroundColor: 'rgba(27,47,107,0.3)',
-            borderRadius: 20,
-            padding: '32px 28px',
-            border: '1px solid rgba(239,68,68,0.15)',
+            backgroundColor: 'var(--bg-card)',
+            borderRadius: 24,
+            padding: 40,
+            width: '100%',
+            maxWidth: 400,
+            border: '1px solid var(--border)',
+            boxShadow: '0 24px 64px var(--shadow)',
           }}
         >
           <h2
             style={{
-              color: 'white',
+              color: 'var(--text-primary)',
               fontSize: 20,
               fontWeight: 900,
               marginBottom: 6,
@@ -80,7 +118,7 @@ export default function LoginPage() {
           </h2>
           <p
             style={{
-              color: '#6B7B99',
+              color: 'var(--text-secondary)',
               fontSize: 13,
               textAlign: 'center',
               marginBottom: 24,
@@ -170,7 +208,7 @@ export default function LoginPage() {
 
 const labelStyle = {
   display: 'block',
-  color: '#6B7B99',
+  color: 'var(--text-secondary)',
   fontSize: 10,
   fontWeight: 700,
   letterSpacing: 1,
@@ -180,11 +218,11 @@ const labelStyle = {
 
 const inputStyle = {
   width: '100%',
-  backgroundColor: 'rgba(255,255,255,0.05)',
-  border: '1px solid rgba(255,255,255,0.1)',
+  backgroundColor: 'var(--bg-input)',
+  border: '1px solid var(--border-input)',
   borderRadius: 10,
   padding: '12px 14px',
-  color: 'white',
+  color: 'var(--text-primary)',
   fontSize: 14,
   outline: 'none',
   boxSizing: 'border-box',

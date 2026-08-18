@@ -109,10 +109,10 @@ export default function ReportsPage() {
   return (
     <div>
       <div style={{ marginBottom: 24 }}>
-        <h1 style={{ color: 'white', fontSize: 24, fontWeight: 900, margin: 0 }}>
+        <h1 style={{ color: 'var(--text-primary)', fontSize: 24, fontWeight: 900, margin: 0 }}>
           Trainer Reports
         </h1>
-        <p style={{ color: '#6B7B99', marginTop: 4, fontSize: 14 }}>
+        <p style={{ color: 'var(--text-secondary)', marginTop: 4, fontSize: 14 }}>
           {counts.pending > 0 && (
             <span style={{ color: '#EF4444', fontWeight: 700 }}>
               {counts.pending} pending review ·
@@ -161,15 +161,15 @@ export default function ReportsPage() {
       </div>
 
       {loading ? (
-        <p style={{ color: '#6B7B99' }}>Loading reports...</p>
+        <p style={{ color: 'var(--text-secondary)' }}>Loading reports...</p>
       ) : filtered.length === 0 ? (
         <div
           style={{
             textAlign: 'center',
             padding: 60,
-            backgroundColor: 'rgba(27,47,107,0.3)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 20,
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid var(--border)',
           }}
         >
           <RiFlagLine
@@ -177,7 +177,7 @@ export default function ReportsPage() {
             color="rgba(239,68,68,0.3)"
             style={{ marginBottom: 16 }}
           />
-          <p style={{ color: '#6B7B99' }}>No {filter} reports</p>
+          <p style={{ color: 'var(--text-secondary)' }}>No {filter} reports</p>
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -185,7 +185,7 @@ export default function ReportsPage() {
             <div
               key={report.id}
               style={{
-                backgroundColor: 'rgba(27,47,107,0.3)',
+                backgroundColor: 'var(--bg-card)',
                 borderRadius: 16,
                 border: `1px solid ${
                   report.status === 'pending'
@@ -238,7 +238,7 @@ export default function ReportsPage() {
                         flexWrap: 'wrap',
                       }}
                     >
-                      <span style={{ color: 'white', fontSize: 16, fontWeight: 800 }}>
+                      <span style={{ color: 'var(--text-primary)', fontSize: 16, fontWeight: 800 }}>
                         {report.trainer_name}
                       </span>
                       <span
@@ -280,7 +280,7 @@ export default function ReportsPage() {
                       </span>
                     </div>
 
-                    <span style={{ color: '#6B7B99', fontSize: 12 }}>
+                    <span style={{ color: 'var(--text-secondary)', fontSize: 12 }}>
                       Reported on {formatDate(report.created_at)}
                     </span>
                   </div>
@@ -298,7 +298,7 @@ export default function ReportsPage() {
                   >
                     <p
                       style={{
-                        color: '#6B7B99',
+                        color: 'var(--text-secondary)',
                         fontSize: 13,
                         lineHeight: 1.6,
                         margin: 0,
@@ -346,7 +346,7 @@ export default function ReportsPage() {
                         border: '1px solid rgba(107,123,153,0.2)',
                         borderRadius: 8,
                         padding: '8px 14px',
-                        color: '#6B7B99',
+                        color: 'var(--text-secondary)',
                         fontSize: 12,
                         fontWeight: 700,
                         cursor: 'pointer',
@@ -371,7 +371,7 @@ export default function ReportsPage() {
                         border: 'none',
                         borderRadius: 8,
                         padding: '8px 14px',
-                        color: 'white',
+                        color: 'var(--text-primary)',
                         fontSize: 12,
                         fontWeight: 800,
                         cursor: 'pointer',

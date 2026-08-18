@@ -39,7 +39,7 @@ export default function Sidebar({ isOpen, isMobile, onClose }) {
         left: 0,
         bottom: 0,
         width: 260,
-        backgroundColor: '#0D1B45',
+        backgroundColor: '#1B2F6B',
         borderRight: '1px solid rgba(255,255,255,0.06)',
         display: 'flex',
         flexDirection: 'column',

@@ -1,10 +1,18 @@
 import React from 'react';
+import {
+  RiMenuLine,
+  RiLogoutBoxLine,
+  RiShieldCheckLine,
+  RiSunLine,
+  RiMoonLine,
+} from 'react-icons/ri';
 import { supabase } from '../lib/supabase';
-import { RiMenuLine, RiLogoutBoxLine, RiShieldCheckLine } from 'react-icons/ri';
 import { useIsMobile } from '../hooks/useIsMobile';
+import useTheme from '../hooks/useTheme';
 
 export default function Header({ session, onMenuToggle }) {
   const isMobile = useIsMobile();
+  const { theme, toggleTheme } = useTheme();
 
   const handleLogout = async () => {
     if (window.confirm('Sign out of Admin Dashboard?')) {
@@ -86,6 +94,42 @@ export default function Header({ session, onMenuToggle }) {
         >
           {session?.user?.email}
         </div>
+
+        <button
+          type="button"
+          onClick={toggleTheme}
+          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 6,
+            backgroundColor:
+              theme === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(27,47,107,0.08)',
+            border: `1px solid ${
+              theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(27,47,107,0.15)'
+            }`,
+            borderRadius: 50,
+            padding: '7px 14px',
+            cursor: 'pointer',
+            color: theme === 'dark' ? '#F5C842' : '#1B2F6B',
+            fontSize: 13,
+            fontWeight: 700,
+            transition: 'all 0.2s',
+            flexShrink: 0,
+          }}
+        >
+          {theme === 'dark' ? (
+            <>
+              <RiSunLine size={16} />
+              {!isMobile && <span style={{ fontSize: 12 }}>Light</span>}
+            </>
+          ) : (
+            <>
+              <RiMoonLine size={16} />
+              {!isMobile && <span style={{ fontSize: 12 }}>Dark</span>}
+            </>
+          )}
+        </button>
 
         <button
           type="button"

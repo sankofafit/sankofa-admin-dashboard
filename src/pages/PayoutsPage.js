@@ -254,8 +254,8 @@ export default function PayoutsPage() {
   return (
     <div>
       <div style={{ marginBottom: 24 }}>
-        <h1 style={{ color: 'white', fontSize: 24, fontWeight: 900, margin: 0 }}>Payouts</h1>
-        <p style={{ color: '#6B7B99', marginTop: 4, fontSize: 14 }}>
+        <h1 style={{ color: 'var(--text-primary)', fontSize: 24, fontWeight: 900, margin: 0 }}>Payouts</h1>
+        <p style={{ color: 'var(--text-secondary)', marginTop: 4, fontSize: 14 }}>
           Manage gym and trainer earnings payouts
         </p>
       </div>
@@ -277,10 +277,10 @@ export default function PayoutsPage() {
           <div style={{ color: '#06B6D4', fontWeight: 700, fontSize: 13, marginBottom: 4 }}>
             Two Payout Options Available
           </div>
-          <div style={{ color: '#6B7B99', fontSize: 12, lineHeight: 1.6 }}>
-            <strong style={{ color: 'white' }}>Phase 1 - Manual:</strong> Send money via MoMo
+          <div style={{ color: 'var(--text-secondary)', fontSize: 12, lineHeight: 1.6 }}>
+            <strong style={{ color: 'var(--text-primary)' }}>Phase 1 - Manual:</strong> Send money via MoMo
             yourself then click &quot;Mark as Paid&quot; to record it.{' '}
-            <strong style={{ color: 'white' }}>Phase 2 - Automatic:</strong> Click &quot;Paystack
+            <strong style={{ color: 'var(--text-primary)' }}>Phase 2 - Automatic:</strong> Click &quot;Paystack
             Transfer&quot; (requires REACT_APP_PAYSTACK_SECRET_KEY and Paystack balance).
           </div>
         </div>
@@ -296,7 +296,7 @@ export default function PayoutsPage() {
       >
         <div
           style={{
-            backgroundColor: 'rgba(27,47,107,0.4)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 16,
             padding: 20,
             border: '1px solid rgba(245,200,66,0.2)',
@@ -309,40 +309,40 @@ export default function PayoutsPage() {
                 trainerPayouts.reduce((s, t) => s + t.outstanding, 0)
             )}
           </div>
-          <div style={{ color: 'white', fontSize: 13, fontWeight: 700 }}>Total Outstanding</div>
-          <div style={{ color: '#6B7B99', fontSize: 11 }}>All unpaid earnings</div>
+          <div style={{ color: 'var(--text-primary)', fontSize: 13, fontWeight: 700 }}>Total Outstanding</div>
+          <div style={{ color: 'var(--text-secondary)', fontSize: 11 }}>All unpaid earnings</div>
         </div>
         <div
           style={{
-            backgroundColor: 'rgba(27,47,107,0.4)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 16,
             padding: 20,
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid var(--border)',
           }}
         >
           <RiStoreLine size={24} color="#F5C842" style={{ marginBottom: 12 }} />
           <div style={{ color: '#F5C842', fontSize: 22, fontWeight: 900, marginBottom: 4 }}>
             {gymPayouts.length}
           </div>
-          <div style={{ color: 'white', fontSize: 13, fontWeight: 700 }}>Gyms Owed</div>
-          <div style={{ color: '#6B7B99', fontSize: 11 }}>
+          <div style={{ color: 'var(--text-primary)', fontSize: 13, fontWeight: 700 }}>Gyms Owed</div>
+          <div style={{ color: 'var(--text-secondary)', fontSize: 11 }}>
             {formatCurrency(gymPayouts.reduce((s, g) => s + g.outstanding, 0))}
           </div>
         </div>
         <div
           style={{
-            backgroundColor: 'rgba(27,47,107,0.4)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 16,
             padding: 20,
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid var(--border)',
           }}
         >
           <RiUserHeartLine size={24} color="#8B5CF6" style={{ marginBottom: 12 }} />
           <div style={{ color: '#8B5CF6', fontSize: 22, fontWeight: 900, marginBottom: 4 }}>
             {trainerPayouts.length}
           </div>
-          <div style={{ color: 'white', fontSize: 13, fontWeight: 700 }}>Trainers Owed</div>
-          <div style={{ color: '#6B7B99', fontSize: 11 }}>
+          <div style={{ color: 'var(--text-primary)', fontSize: 13, fontWeight: 700 }}>Trainers Owed</div>
+          <div style={{ color: 'var(--text-secondary)', fontSize: 11 }}>
             {formatCurrency(trainerPayouts.reduce((s, t) => s + t.outstanding, 0))}
           </div>
         </div>
@@ -352,7 +352,7 @@ export default function PayoutsPage() {
         style={{
           display: 'flex',
           gap: 4,
-          backgroundColor: 'rgba(27,47,107,0.4)',
+          backgroundColor: 'var(--bg-card)',
           borderRadius: 12,
           padding: 4,
           marginBottom: 20,
@@ -384,20 +384,20 @@ export default function PayoutsPage() {
       </div>
 
       {loading ? (
-        <p style={{ color: '#6B7B99' }}>Loading payouts...</p>
+        <p style={{ color: 'var(--text-secondary)' }}>Loading payouts...</p>
       ) : currentPayouts.length === 0 ? (
         <div
           style={{
             textAlign: 'center',
             padding: 60,
-            backgroundColor: 'rgba(27,47,107,0.3)',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: 20,
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid var(--border)',
           }}
         >
           <RiCheckboxCircleLine size={48} color="rgba(48,209,88,0.4)" style={{ marginBottom: 16 }} />
-          <h3 style={{ color: 'white', marginBottom: 8 }}>All paid up!</h3>
-          <p style={{ color: '#6B7B99' }}>No outstanding payouts for {activeTab}</p>
+          <h3 style={{ color: 'var(--text-primary)', marginBottom: 8 }}>All paid up!</h3>
+          <p style={{ color: 'var(--text-secondary)' }}>No outstanding payouts for {activeTab}</p>
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -405,9 +405,9 @@ export default function PayoutsPage() {
             <div
               key={partner.id}
               style={{
-                backgroundColor: 'rgba(27,47,107,0.3)',
+                backgroundColor: 'var(--bg-card)',
                 borderRadius: 16,
-                border: '1px solid rgba(255,255,255,0.06)',
+                border: '1px solid var(--border)',
                 overflow: 'hidden',
               }}
             >
@@ -448,14 +448,14 @@ export default function PayoutsPage() {
                 </div>
 
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ color: 'white', fontSize: 15, fontWeight: 800, marginBottom: 4 }}>
+                  <div style={{ color: 'var(--text-primary)', fontSize: 15, fontWeight: 800, marginBottom: 4 }}>
                     {partner.name}
                   </div>
                   <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
                     {partner.city && (
                       <span
                         style={{
-                          color: '#6B7B99',
+                          color: 'var(--text-secondary)',
                           fontSize: 12,
                           display: 'inline-flex',
                           alignItems: 'center',
@@ -469,7 +469,7 @@ export default function PayoutsPage() {
                     {partner.momo_number ? (
                       <span
                         style={{
-                          color: '#6B7B99',
+                          color: 'var(--text-secondary)',
                           fontSize: 12,
                           display: 'inline-flex',
                           alignItems: 'center',
@@ -493,7 +493,7 @@ export default function PayoutsPage() {
                         No MoMo number set
                       </span>
                     )}
-                    <span style={{ color: '#6B7B99', fontSize: 12 }}>
+                    <span style={{ color: 'var(--text-secondary)', fontSize: 12 }}>
                       {partner.bookingCount} bookings
                     </span>
                   </div>
@@ -503,8 +503,8 @@ export default function PayoutsPage() {
                   <div style={{ color: '#30D158', fontSize: 20, fontWeight: 900, marginBottom: 2 }}>
                     {formatCurrency(partner.outstanding)}
                   </div>
-                  <div style={{ color: '#6B7B99', fontSize: 11 }}>outstanding</div>
-                  <div style={{ color: '#6B7B99', fontSize: 11 }}>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: 11 }}>outstanding</div>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: 11 }}>
                     from {formatCurrency(partner.totalGross)} gross
                   </div>
                 </div>
@@ -521,7 +521,7 @@ export default function PayoutsPage() {
                   backgroundColor: 'rgba(0,0,0,0.1)',
                 }}
               >
-                <span style={{ color: '#6B7B99', fontSize: 12, flex: isMobile ? '1 1 100%' : 1 }}>
+                <span style={{ color: 'var(--text-secondary)', fontSize: 12, flex: isMobile ? '1 1 100%' : 1 }}>
                   {partner.momo_provider} · {partner.momo_number || 'No number set'}
                 </span>
 
@@ -563,7 +563,7 @@ export default function PayoutsPage() {
                     border: 'none',
                     borderRadius: 8,
                     padding: '8px 16px',
-                    color: 'white',
+                    color: 'var(--text-primary)',
                     fontSize: 12,
                     fontWeight: 800,
                     cursor: partner.momo_number ? 'pointer' : 'not-allowed',
