@@ -181,12 +181,14 @@ export default function FeatureFlagsPage() {
     try {
       const newValue = !current;
 
-      const { error } = await supabase.from('feature_flags').upsert({
-        key,
-        enabled: newValue,
-        updated_at: new Date().toISOString(),
-        updated_by: 'samamponsah775@gmail.com',
-      });
+      const { error } = await supabase
+        .from('feature_flags')
+        .update({
+          enabled: newValue,
+          updated_at: new Date().toISOString(),
+          updated_by: 'samamponsah775@gmail.com',
+        })
+        .eq('key', key);
 
       if (error) throw error;
 
@@ -197,8 +199,6 @@ export default function FeatureFlagsPage() {
 
       setLastUpdated(key);
       setTimeout(() => setLastUpdated(null), 2000);
-
-      console.log(`Flag ${key} → ${newValue}`);
     } catch (e) {
       alert(`Error: ${e.message}`);
     } finally {
@@ -211,12 +211,17 @@ export default function FeatureFlagsPage() {
 
     const allKeys = FLAG_GROUPS.flatMap((g) => g.flags.map((f) => f.key));
 
-    for (const key of allKeys) {
-      await supabase.from('feature_flags').upsert({
-        key,
+    const { error } = await supabase
+      .from('feature_flags')
+      .update({
         enabled: true,
         updated_at: new Date().toISOString(),
-      });
+      })
+      .in('key', allKeys);
+
+    if (error) {
+      alert(`Error: ${error.message}`);
+      return;
     }
 
     await loadFlags();
@@ -243,12 +248,17 @@ export default function FeatureFlagsPage() {
       'premium_subscription',
     ];
 
-    for (const key of paymentKeys) {
-      await supabase.from('feature_flags').upsert({
-        key,
+    const { error } = await supabase
+      .from('feature_flags')
+      .update({
         enabled: false,
         updated_at: new Date().toISOString(),
-      });
+      })
+      .in('key', paymentKeys);
+
+    if (error) {
+      alert(`Error: ${error.message}`);
+      return;
     }
 
     await loadFlags();
