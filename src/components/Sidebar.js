@@ -12,6 +12,7 @@ import {
   RiCloseLine,
   RiFlagLine,
   RiFileListLine,
+  RiToggleLine,
 } from 'react-icons/ri';
 import { MdFitnessCenter } from 'react-icons/md';
 
@@ -23,6 +24,7 @@ const NAV_ITEMS = [
   { path: '/bookings', Icon: RiCalendarEventLine, label: 'Bookings' },
   { path: '/reports', Icon: RiFlagLine, label: 'Reports' },
   { path: '/logs', Icon: RiFileListLine, label: 'Activity Logs' },
+  { path: '/flags', Icon: RiToggleLine, label: 'Feature Flags' },
   { path: '/payouts', Icon: RiMoneyDollarCircleLine, label: 'Payouts' },
   { path: '/earnings', Icon: RiBarChartBoxLine, label: 'Earnings' },
   { path: '/settings', Icon: RiSettings3Line, label: 'Settings' },
